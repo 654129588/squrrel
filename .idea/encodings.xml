@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootstarterhello" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootstarterthymeleaf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/squirrel-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/squirrel-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/squirrel-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/squirrel-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/squirrel-web" charset="UTF-8" />
+  </component>
+</project>
