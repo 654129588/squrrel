@@ -29,11 +29,6 @@
       <artifactId>guava</artifactId>
       <version>18.0</version>
     </dependency>
-    <!--Spring Security-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
     <!-- jpa-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
