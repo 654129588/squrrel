@@ -25,7 +25,7 @@ public class SmallProgramController {
             //查询快递公司编号
             KdApiOrderDistinguish api = new KdApiOrderDistinguish();
             JSONObject shippers = JSON.parseObject(JSON.parseObject(api.getOrderTracesByJson(jsonObject.getString("shipperCode"))).getString("Shippers"));
-
+            //测试
             //查询快递物流信息
             KdniaoSubscribeAPI kdniaoSubscribeAPI = new KdniaoSubscribeAPI();
             result = JSON.parseObject(kdniaoSubscribeAPI.orderTracesSubByJson(shippers.getString("ShipperCode"), jsonObject.getString("shipperCode")));
