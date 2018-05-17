@@ -28,13 +28,14 @@ public class RequestEntity {
 
     public boolean checkSign(){
         boolean flag = false;
+        String param =this.token + this.timestamp;
         try {
-            String param =this.token + this.timestamp;
-            LinkedHashMap<String, String> jsonMap = JSON.parseObject(this.jsonString, new TypeReference<LinkedHashMap<String, String>>() {
-            });
-            for (Map.Entry<String, String> entry : jsonMap.entrySet()) {
-                log.info("key:{},value:{}",entry.getKey(),entry.getValue());
-                param +=entry.getValue();
+            LinkedHashMap<String, String> jsonMap = JSON.parseObject(this.jsonString, new TypeReference<LinkedHashMap<String, String>>() {});
+            if(jsonMap != null && jsonMap.size() > 0) {
+                for (Map.Entry<String, String> entry : jsonMap.entrySet()) {
+                    log.info("key:{},value:{}", entry.getKey(), entry.getValue());
+                    param += entry.getValue();
+                }
             }
             String md5DigestAsHex = DigestUtils.md5DigestAsHex(param.getBytes());
             System.out.println(md5DigestAsHex);

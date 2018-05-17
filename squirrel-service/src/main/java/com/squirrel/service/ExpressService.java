@@ -15,4 +15,8 @@ public class ExpressService {
     public List<Express> findAll (){
         return expressDao.findAll();
     }
+
+    public List<Express> findExpressByExpressCode(String expressCode){
+        return expressDao.findExpressByExpressCode(expressCode);
+    }
 }

@@ -7,21 +7,23 @@ import javax.persistence.Id;
 @Entity
 public class Express {
 
+
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String expressName;
 
     private String expressCode;
 
-    public Express(Long id, String expressName, String expressCode) {
-        super();
-        this.id = id;
-        this.expressName = expressName;
-        this.expressCode = expressCode;
-    }
+    private String logo;
 
-    @Id
-    @GeneratedValue
+    private String telephone;
+
+    private String officialWebsite;
+
+
+
     public Long getId() {
         return id;
     }
@@ -44,6 +46,30 @@ public class Express {
 
     public void setExpressCode(String expressCode) {
         this.expressCode = expressCode;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getOfficialWebsite() {
+        return officialWebsite;
+    }
+
+    public void setOfficialWebsite(String officialWebsite) {
+        this.officialWebsite = officialWebsite;
     }
 
     @Override

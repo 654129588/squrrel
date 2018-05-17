@@ -1,7 +1,6 @@
 package com.squirrel.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.squirrel.entity.RequestEntity;
 import com.squirrel.entity.Result;
@@ -9,8 +8,8 @@ import com.squirrel.service.ExpressService;
 import com.squirrel.util.KdApiOrderDistinguish;
 import com.squirrel.util.KdniaoSubscribeAPI;
 import com.squirrel.util.ResultUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
@@ -30,7 +29,8 @@ public class SmallProgramController {
         try {
             JSONObject jsonObject = JSON.parseObject(requestEntity.getJsonString());
             String ShipperCode = "";
-            if(jsonObject.getString("shipperCode") != null && jsonObject.getString("shipperCode") != ""){
+            //判断是否传了编号
+            if(StringUtils.isNotBlank(jsonObject.getString("shipperCode"))){
                 ShipperCode = jsonObject.getString("shipperCode");
             }else {
                 //查询快递公司编号
@@ -53,5 +53,14 @@ public class SmallProgramController {
             return ResultUtils.error("-1","签名错误");
         }
         return ResultUtils.success(expressService.findAll());
+    }
+
+    @RequestMapping(value = "/findExpressByExpressCode")
+    public Result findExpressByExpressCode(RequestEntity requestEntity){
+        if(!requestEntity.checkSign()){
+            return ResultUtils.error("-1","签名错误");
+        }
+        JSONObject jsonObject = JSON.parseObject(requestEntity.getJsonString());
+        return ResultUtils.success(expressService.findExpressByExpressCode(jsonObject.getString("expressCode")));
     }
 }

@@ -29,13 +29,13 @@ public class KdniaoSubscribeAPI {
     //DEMO
     public static void main(String[] args) {
         KdniaoSubscribeAPI api = new KdniaoSubscribeAPI();
-        /*try {
-            String result = api.orderTracesSubByJson();
+        try {
+            String result = api.orderTracesSubByJson("3101702052843","YD");
             System.out.print(result);
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         System.out.println(System.currentTimeMillis());
     }
 
@@ -53,8 +53,7 @@ public class KdniaoSubscribeAPI {
      * @throws Exception
      */
     public String orderTracesSubByJson(String logisticCode, String shipperCode) throws Exception{
-        String requestData="{'IsHandleInfo':'1'," +
-                "'LogisticCode':'"+logisticCode+"',"+
+        String requestData="{'LogisticCode':'"+logisticCode+"',"+
                 "'ShipperCode':'"+shipperCode+"'}" ;
 
         Map<String, String> params = new HashMap<String, String>();
